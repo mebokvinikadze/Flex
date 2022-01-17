@@ -14,50 +14,44 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class RecyclerViewOrderAdapter(private val list: List<Food>) :
-    RecyclerView.Adapter<RecyclerViewFoodAdapter.FoodViewHolder>() {
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): RecyclerViewFoodAdapter.FoodViewHolder {
+    RecyclerView.Adapter<RecyclerViewOrderAdapter.FoodViewHolder>() {
 
-        class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            val imageView: ImageView
-            val nameTextView: TextView
-            val priceTextView: TextView
-            val buttonAdd: Button
+        val imageView: ImageView
+        val nameTextView: TextView
+        val priceTextView: TextView
+        val buttonRemove : Button
 
 
 
-            init {
-                imageView = itemView.findViewById(R.id.imageViewFood)
-                nameTextView = itemView.findViewById(R.id.textViewFoodName)
-                priceTextView = itemView.findViewById(R.id.textViewPrice)
-                buttonAdd = itemView.findViewById(R.id.buttonAdd)
+        init {
+            imageView = itemView.findViewById(R.id.imageViewFood2)
+            nameTextView = itemView.findViewById(R.id.textViewFoodName2)
+            priceTextView = itemView.findViewById(R.id.textViewPrice2)
+            buttonRemove = itemView.findViewById(R.id.buttonRemove)
 
-            }
-            fun setData(food: Food) {
-                Glide.with(itemView.context)
-                    .load(food.imageUrl)
-                    .into(imageView)
-                nameTextView.text = food.title
-                priceTextView.text = food.price.toString()
+        }
+        fun setData(food: Food) {
+            Glide.with(itemView.context)
+                .load(food.imageUrl)
+                .into(imageView)
+            nameTextView.text = food.title
+            priceTextView.text = food.price.toString()
 
-                buttonAdd.setOnClickListener{
-                    val title = food.title
-                    val url = food.imageUrl
-                    val id = food.id
-                    val price = food.price
-
-
-
-                    val foodInfo = Food(title,url,id,price)
-                    val auth = FirebaseAuth.getInstance()
-                    val db = FirebaseDatabase.getInstance().getReference("Orders")
-                    db.child(auth.currentUser?.uid!!).child(id.toString()).setValue(foodInfo)
+            buttonRemove.setOnClickListener{
+                val title = food.title
+                val url = food.imageUrl
+                val id = food.id
+                val price = food.price
 
 
-                }
+
+                val foodInfo = Food(id,url,title,price)
+                val auth = FirebaseAuth.getInstance()
+                val db = FirebaseDatabase.getInstance().getReference("Orders")
+                db.child(auth.currentUser?.uid!!).child(id.toString()).removeValue()
+
 
 
             }
@@ -65,37 +59,26 @@ class RecyclerViewOrderAdapter(private val list: List<Food>) :
 
 
 
-
         }
 
-        fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
-
-            val itemView =
-                LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
-            return FoodViewHolder(itemView)
-        }
-
-        fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
-            val food = list[position]
-            holder.setData(food)
-
-        }
-
-        fun getItemCount() = list.size
 
 
 
-
-
-
-}
-
-    override fun onBindViewHolder(holder: RecyclerViewFoodAdapter.FoodViewHolder, position: Int) {
 
     }
 
-    override fun getItemCount(): Int {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
+
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_order, parent, false)
+        return FoodViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
+        val food = list[position]
+        holder.setData(food)
 
     }
 
+    override fun getItemCount() = list.size
 }

@@ -34,7 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 1,
                 "https://media-cdn.tripadvisor.com/media/photo-s/04/59/4d/7f/restaurant-burger-royal.jpg",
                 "Royal Burger",
-                "12$"
+                12
             )
         )
 
@@ -43,7 +43,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 2,
                 "https://www.vegrecipesofindia.com/wp-content/uploads/2020/11/pizza-recipe-2-500x500.jpg",
                 "Pizza",
-                "14$"
+                14
             )
         )
         list.add(
@@ -51,7 +51,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 3,
                 "https://gemrielia.ge/media/__sized__/images/kartofili-fri-crop-c0-5__0-5-450x301-70.jpg",
                 "French fries",
-                "5$"
+                5
             )
         )
 
@@ -60,7 +60,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 4,
                 "https://www.cfacdn.com/img/order/COM/Menu_Refresh/Drinks/Drinks%20PDP/_0000s_0022_Feed_Menu_0000_Drinks_Coca-cola.png",
                 "Coca-cola",
-                "3$"
+                3
             )
         )
         list.add(
@@ -68,7 +68,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 5,
                 "https://www.foodrepublic.com/wp-content/uploads/2012/03/033_FR11785.jpg",
                 "Cheeseburger",
-                "6$"
+                6
             )
         )
         return list

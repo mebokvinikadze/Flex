@@ -47,9 +47,9 @@ class RecyclerViewFoodAdapter(private val list: List<Food>) :
 
 
 
-                val foodInfo = Food(title,url,id,price)
+                val foodInfo = Food(id,url,title,price)
                 val auth = FirebaseAuth.getInstance()
-                val db = FirebaseDatabase.getInstance().getReference("Orders")
+                val db = FirebaseDatabase.getInstance("https://flex-7dddf-default-rtdb.firebaseio.com/").getReference("Food")
                 db.child(auth.currentUser?.uid!!).child(id.toString()).setValue(foodInfo)
 
 
@@ -78,4 +78,5 @@ class RecyclerViewFoodAdapter(private val list: List<Food>) :
     }
 
     override fun getItemCount() = list.size
-}
+
+    }
