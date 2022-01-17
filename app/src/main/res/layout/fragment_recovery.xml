@@ -4,13 +4,27 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/recoveryFragment"
-    android:background="#20242c">
+    android:background="#0d1117">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/recycle_bg"
+        android:backgroundTint="#161b22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="80dp"
         android:orientation="vertical"
@@ -38,15 +52,17 @@
             android:padding="8dp" />
 
 
-
         <Button
             android:id="@+id/buttonResetPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="50dp"
+            android:backgroundTint="#238636"
             android:text="Reset Password"
             android:textAllCaps="false"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
 
         <TextView
             android:id="@+id/textViewLoginRecovery"
@@ -57,7 +73,9 @@
             android:fontFamily="sans-serif"
             android:text="Sign In"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
 
 
     </LinearLayout>

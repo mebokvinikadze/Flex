@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/drawable/add_to_order_bg.xml" value="0.27685185185185185" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.27685185185185185" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.27685185185185185" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/drawable/input.xml" value="0.27685185185185185" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/drawable/recycle_bg.xml" value="0.27685185185185185" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/activity_main.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_changepassword.xml" value="0.26871794871794874" />
-        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_holder.xml" value="0.21203703703703702" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_holder.xml" value="0.25" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_home.xml" value="0.23055555555555557" />
-        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_login.xml" value="0.23055555555555557" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_order.xml" value="0.2431640625" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_profile.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_recovery.xml" value="0.25" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/fragment_register.xml" value="0.28135593220338984" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/item_food.xml" value="0.225" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/item_order.xml" value="0.25" />
+        <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/layout/item_orders.xml" value="0.26481481481481484" />
         <entry key="..\:/Users/99557/Documents/Flex/app/src/main/res/menu/menu.xml" value="0.21203703703703702" />
       </map>
     </option>

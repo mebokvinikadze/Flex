@@ -47,44 +47,44 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     fun validateInput(): Boolean {
 
         // checking if email isn't empty
-        if (editTextEmailRegister.text.toString().equals("")) {
-            editTextEmailRegister.setError("Please Enter Email")
+        if (editTextEmailRegister.text.toString() == "") {
+            editTextEmailRegister.error = "Please Enter Email"
             return false
         }
 
         // checking if password isn't empty
-        if (editTextEmailRegister.text.toString().equals("")) {
-            editTextEmailRegister.setError("Please Enter Password")
+        if (editTextEmailRegister.text.toString() == "") {
+            editTextEmailRegister.error = "Please Enter Password"
             return false
         }
 
         // checking if password isn't empty
-        if (editTextRepeatPasswordRegister.text.toString().equals("")) {
-            editTextRepeatPasswordRegister.setError("Repeat Password")
+        if (editTextRepeatPasswordRegister.text.toString() == "") {
+            editTextRepeatPasswordRegister.error = "Repeat Password"
             return false
         }
 
         // checking the proper email format
         if (!isEmailValid(editTextEmailRegister.text.toString())) {
-            editTextEmailRegister.setError("Please Enter Valid Email")
+            editTextEmailRegister.error = "Please Enter Valid Email"
             return false
         }
 
         // checking minimum password Length
         if (editTextPasswordRegister.text.length < 6) {
-            editTextPasswordRegister.setError("Password Length must be more than " + 9 + "characters")
+            editTextPasswordRegister.error = "Password Length must be more than " + 6 + "characters"
             return false
         }
 
         // password must contain
         if (!isValidPassword(editTextPasswordRegister.text.toString())) {
-            editTextPasswordRegister.setError("Password must contain a-z , 0-9")
+            editTextPasswordRegister.error = "Password must contain a-z , 0-9"
             return false
         }
 
         // Checking if repeat password is the same
-        if (!editTextRepeatPasswordRegister.text.toString().equals(editTextPasswordRegister.text.toString())) {
-            editTextRepeatPasswordRegister.setError("Password does not match")
+        if (editTextRepeatPasswordRegister.text.toString() != editTextPasswordRegister.text.toString()) {
+            editTextRepeatPasswordRegister.error = "Password does not match"
             return false
         }
         return true
