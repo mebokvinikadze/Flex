@@ -23,11 +23,23 @@
         <action
             android:id="@+id/action_profileFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.flex.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.flex.fragments.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_changepassword">
+        <action
+            android:id="@+id/action_changePasswordFragment_to_profileFragment"
+            app:destination="@id/profileFragment"/>
+    </fragment>
 
 </navigation>

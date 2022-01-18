@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.flex.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -23,20 +24,21 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
         editTextNewPassword = view.findViewById(R.id.editTextNewPassword)
         buttonSetNewPassword = view.findViewById(R.id.buttonSetNewPassword)
 
-        editTextNewPassword.setOnClickListener {
+        buttonSetNewPassword.setOnClickListener {
             val newPassword = editTextNewPassword.text.toString()
 
             if (newPassword.isEmpty()) {
-                Toast.makeText(requireActivity(), "Password shouldn't be empty ", Toast.LENGTH_SHORT).show()
+                editTextNewPassword.error = "Password is Empty!"
                 return@setOnClickListener
 
             } else if (newPassword.length < 6) {
-                Toast.makeText(requireActivity(), "Password must be more than 6 symbols", Toast.LENGTH_SHORT).show()
+               editTextNewPassword.error = "Password must be more than 6 symbols!"
                 return@setOnClickListener
-            } 
+            }
             FirebaseAuth.getInstance().currentUser?.updatePassword(newPassword)
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
+                        findNavController().navigate(R.id.action_changePasswordFragment_to_profileFragment)
                         Toast.makeText(requireActivity(), "Password has succesfully changed!", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
@@ -46,3 +48,4 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
 
     }
 }
+

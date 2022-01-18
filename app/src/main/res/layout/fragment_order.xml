@@ -7,6 +7,54 @@
     android:background="@color/white"
     android:id="@+id/orderFragment">
 
+    <TextView
+        android:id="@+id/totalSum"
+        android:layout_width="34dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:text=""
+        android:textColor="#C60808"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:layout_width="47dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="20dp"
+        android:text="₾"
+        android:textColor="#C60808"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967" />
+
+    <TextView
+        android:layout_width="131dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="Total Sum:"
+        android:textAlignment="center"
+        android:textColor="#C60808"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView2"
         tools:listitem="@layout/item_food"

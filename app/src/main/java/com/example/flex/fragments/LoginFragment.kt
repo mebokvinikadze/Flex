@@ -23,7 +23,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private lateinit var textViewRegisterLogin: TextView
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,21 +37,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         buttonLogin.setOnClickListener {
 
-            val email = editTextEmailLogin.text.toString()
-            val password = editTextPasswordLogin.text.toString()
+            if (validateInput()) {
 
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    findNavController().navigate(R.id.action_loginFragment_to_holderFragment)
+                val email = editTextEmailLogin.text.toString()
+                val password = editTextPasswordLogin.text.toString()
 
-                } else {
-                    Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            findNavController().navigate(R.id.action_loginFragment_to_holderFragment)
 
 
-                }
+                        } else {
+                            Toast.makeText(requireActivity(), "Password or Email is incorrect!", Toast.LENGTH_SHORT).show()
+
+
+                        }
+                    }
+
             }
-
-
 
 
         }
@@ -66,9 +69,24 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
 
+    }
 
+    fun validateInput(): Boolean {
 
+        if (editTextEmailLogin.text.toString() == "") {
+            editTextEmailLogin.error = "Please Enter Email"
+            return false
+        }
+
+        // checking if password isn't empty
+        if (editTextPasswordLogin.text.toString() == "") {
+            editTextPasswordLogin.error = "Please Enter Password"
+            return false
+        }
+        return true
     }
 
 
 }
+
+

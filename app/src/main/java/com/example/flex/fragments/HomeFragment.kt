@@ -32,26 +32,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         list.add(
             Food(
                 1,
-                "https://media-cdn.tripadvisor.com/media/photo-s/04/59/4d/7f/restaurant-burger-royal.jpg",
+                "https://banner2.cleanpng.com/20180920/p/kisspng-whopper-hamburger-cheeseburger-burger-king-special-5ba3a11a16b683.571425071537450266093.jpg",
                 "Royal Burger",
-                12
+                9
             )
         )
 
         list.add(
             Food(
                 2,
-                "https://www.vegrecipesofindia.com/wp-content/uploads/2020/11/pizza-recipe-2-500x500.jpg",
+                "https://www.seekpng.com/png/full/68-689158_pizza-png-high-quality-image-png-promoes-de.png",
                 "Pizza",
-                14
+                11
             )
         )
         list.add(
             Food(
                 3,
-                "https://gemrielia.ge/media/__sized__/images/kartofili-fri-crop-c0-5__0-5-450x301-70.jpg",
+                "https://www.pngall.com/wp-content/uploads/4/French-Fries-PNG-Image-1.png",
                 "French fries",
-                5
+                4
             )
         )
 
@@ -60,17 +60,44 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 4,
                 "https://www.cfacdn.com/img/order/COM/Menu_Refresh/Drinks/Drinks%20PDP/_0000s_0022_Feed_Menu_0000_Drinks_Coca-cola.png",
                 "Coca-cola",
-                3
+                2
             )
         )
         list.add(
             Food(
                 5,
-                "https://www.foodrepublic.com/wp-content/uploads/2012/03/033_FR11785.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/1/11/Cheeseburger.png",
                 "Cheeseburger",
                 6
             )
         )
+        list.add(
+            Food(
+                6,
+                "https://purepng.com/public/uploads/large/purepng.com-fresh-applefoodsweettastyhealthyfruitappleleaf-981524677946vfurf.png",
+                "Apple",
+                2
+            )
+        )
+//
+//        list.add(
+//            Food(
+//                7,
+//                "https://cdn.picpng.com/cucumber/painting-cucumber-28148.png",
+//                "Shusha Kitri",
+//                2
+//            )
+//        )
+//
+//        list.add(
+//            Food(
+//                8,
+//                "https://8000vintages.ge/images/thumbnails/300/450/detailed/10/gvino_mtsvane_soyl-ie.png",
+//                "Wine",
+//                25
+//            )
+//        )
+
         return list
     }
 

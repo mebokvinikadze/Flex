@@ -23,6 +23,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         emailTextView = view.findViewById(R.id.textView)
         buttonChangePassword = view.findViewById(R.id.buttonChangePassword)
 
+        buttonChangePassword.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_changePasswordFragment)
+
+        }
+
         logoutListeners()
 
         emailTextView.text = FirebaseAuth.getInstance().currentUser?.email
@@ -37,7 +42,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
 
 
-            }
-        }
+    }
+}
 
 
