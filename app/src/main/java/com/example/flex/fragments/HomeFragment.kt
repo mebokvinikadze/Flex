@@ -88,15 +88,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 2
             )
         )
-//
-//        list.add(
-//            Food(
-//                8,
-//                "https://8000vintages.ge/images/thumbnails/300/450/detailed/10/gvino_mtsvane_soyl-ie.png",
-//                "Wine",
-//                25
-//            )
-//        )
+
+        list.add(
+            Food(
+                9,
+                "https://www.seekpng.com/png/full/237-2372204_gold-nugget-png-chicken-nuggets-four-chicken-breast.png",
+                "Nuggets",
+                8
+            )
+        )
+        list.add(
+            Food(
+                10,
+                "https://www.pngall.com/wp-content/uploads/11/Ketchup-PNG-Clipart.png",
+                "Ketchup",
+                2
+            )
+        )
+
 
         return list
     }

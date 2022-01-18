@@ -22,17 +22,12 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
     private lateinit var recyclerView2: RecyclerView
     private lateinit var foodArrayList: ArrayList<Food>
     private lateinit var orderButton: Button
-
-    //    private var listAdapter: RecyclerViewOrderAdapter? = null
-//    private val adapter = recyclerView2.adapter
+    private var foodPosition = 0
     private var totalSum = 0
     private lateinit var textView: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
 
         recyclerView2 = view.findViewById(R.id.recyclerView2)
         foodArrayList = arrayListOf<Food>()
@@ -41,16 +36,15 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
         textView = view.findViewById(R.id.totalSum)
         orderButton = view.findViewById(R.id.orderButton)
 
-
         orderButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Order submitted succesfully!", Toast.LENGTH_SHORT).show()
+            checkout(foodPosition)
+
         }
+
 
     }
 
     private fun getFoodData() {
-
-
         val auth = FirebaseAuth.getInstance()
         val db = FirebaseDatabase.getInstance().getReference("Food").child(auth.currentUser?.uid!!)
         db.addValueEventListener(object : ValueEventListener {
@@ -59,53 +53,59 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
 
                 if (snapshot.exists()) {
 
-                    for (bookSnapshot in snapshot.children) {
+                    for (foodSnapshot in snapshot.children) {
 
-                        val food = bookSnapshot.getValue(Food::class.java)
+                        val food = foodSnapshot.getValue(Food::class.java)
                         foodArrayList.add(food!!)
-
-
                     }
-
-
-
                     recyclerView2.adapter = RecyclerViewOrderAdapter(foodArrayList) {
-                        Toast.makeText(requireContext(), "clicked$it", Toast.LENGTH_SHORT).show()
+                        foodPosition = it
+                        removeFood(foodPosition)
                     }
                     recyclerView2.layoutManager = LinearLayoutManager(context)
 
                     textView.text = sumFood().toString()
 
                 }
-
-
             }
-
 
             override fun onCancelled(error: DatabaseError) {
 
             }
-
-
         })
-
-
     }
 
 
     fun sumFood(): Int {
+        totalSum = 0
         if (foodArrayList.isNotEmpty()) {
             for (index in foodArrayList.indices) {
                 totalSum += foodArrayList[index].price
 
             }
-
         }
         return totalSum
+    }
 
+    fun removeFood(position: Int) {
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseDatabase.getInstance().getReference("Food")
+        db.child(auth.currentUser?.uid!!).child(foodArrayList[position].id.toString())
+            .removeValue()
 
+        foodArrayList.removeAt(position)
+        recyclerView2.adapter?.notifyDataSetChanged()
+    }
+
+    fun checkout(position: Int) {
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseDatabase.getInstance().getReference("Food")
+        db.child(auth.currentUser?.uid!!).child(foodArrayList[position].id.toString())
+            .removeValue()
+
+        foodArrayList.clear()
+        recyclerView2.adapter?.notifyDataSetChanged()
+        Toast.makeText(requireContext(), "გამაიწერა ჯო", Toast.LENGTH_SHORT).show()
     }
 
 }
-
-

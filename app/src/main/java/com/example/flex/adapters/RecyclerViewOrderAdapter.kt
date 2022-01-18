@@ -17,52 +17,19 @@ import com.google.firebase.database.FirebaseDatabase
 class RecyclerViewOrderAdapter(private val list: List<Food>, val onClickDelete: (Int) -> Unit) :
     RecyclerView.Adapter<RecyclerViewOrderAdapter.FoodViewHolder>() {
 
-
-
     class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private lateinit var listFood: Food
-
 
         val imageView: ImageView
         val nameTextView: TextView
         val priceTextView: TextView
         val buttonRemove: Button
 
-
         init {
             imageView = itemView.findViewById(R.id.imageViewFood2)
             nameTextView = itemView.findViewById(R.id.textViewFoodName2)
             priceTextView = itemView.findViewById(R.id.textViewPrice2)
             buttonRemove = itemView.findViewById(R.id.buttonRemove)
-
         }
-
-        fun removeFood(position: Int, food: Food) {
-
-            buttonRemove.setOnClickListener {
-                val title = food.title
-                val url = food.imageUrl
-                val id = food.id
-                val price = food.price
-
-
-                val foodInfo = Food(id, url, title, price)
-                val auth = FirebaseAuth.getInstance()
-                val db = FirebaseDatabase.getInstance().getReference("Food")
-                db.child(auth.currentUser?.uid!!).child(id.toString())
-                    .removeValue()
-
-
-
-
-            }
-
-
-        }
-
-
-
 
         fun setData(food: Food) {
             Glide.with(itemView.context)
@@ -70,13 +37,7 @@ class RecyclerViewOrderAdapter(private val list: List<Food>, val onClickDelete: 
                 .into(imageView)
             nameTextView.text = food.title
             priceTextView.text = food.price.toString()
-
-
-
-
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
@@ -87,11 +48,11 @@ class RecyclerViewOrderAdapter(private val list: List<Food>, val onClickDelete: 
     }
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
-        holder.removeFood(position, list[position])
         holder.setData(list[position])
-
+        holder.buttonRemove.setOnClickListener {
+            onClickDelete(position)
+        }
     }
-
 
     override fun getItemCount() = list.size
 }
