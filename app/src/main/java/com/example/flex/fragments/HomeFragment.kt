@@ -32,7 +32,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         list.add(
             Food(
                 1,
-                "https://banner2.cleanpng.com/20180920/p/kisspng-whopper-hamburger-cheeseburger-burger-king-special-5ba3a11a16b683.571425071537450266093.jpg",
+                "https://static.wikia.nocookie.net/ronaldmcdonald/images/f/fc/Royal_McChicken.png/revision/latest/scale-to-width-down/250?cb=20160108163801",
                 "Royal Burger",
                 9
             )
@@ -79,15 +79,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 2
             )
         )
-//
-//        list.add(
-//            Food(
-//                7,
-//                "https://cdn.picpng.com/cucumber/painting-cucumber-28148.png",
-//                "Shusha Kitri",
-//                2
-//            )
-//        )
+
+        list.add(
+            Food(
+                7,
+                "https://cdn.picpng.com/cucumber/painting-cucumber-28148.png",
+                "Shusha Kitri",
+                2
+            )
+        )
 //
 //        list.add(
 //            Food(

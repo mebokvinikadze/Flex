@@ -42,21 +42,21 @@
 
     <Button
         android:id="@+id/buttonAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/add_to_order_bg"
-        android:backgroundTint="@color/teal_700"
-        android:text="Add"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:layout_marginEnd="5dp"
+        android:background="@drawable/add_and_remove_button"
+        android:text="十"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.899"
         app:layout_constraintStart_toEndOf="@+id/textViewFoodName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.506" />
 
     <TextView
         android:id="@+id/textViewPrice"

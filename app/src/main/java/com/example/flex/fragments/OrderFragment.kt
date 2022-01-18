@@ -2,6 +2,7 @@ package com.example.flex.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -20,6 +21,7 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
     private lateinit var db: DatabaseReference
     private lateinit var recyclerView2: RecyclerView
     private lateinit var foodArrayList: ArrayList<Food>
+    private lateinit var orderButton: Button
 
     //    private var listAdapter: RecyclerViewOrderAdapter? = null
 //    private val adapter = recyclerView2.adapter
@@ -37,7 +39,12 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
         recyclerView2.setHasFixedSize(true)
         getFoodData()
         textView = view.findViewById(R.id.totalSum)
+        orderButton = view.findViewById(R.id.orderButton)
 
+
+        orderButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Order submitted succesfully!", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
